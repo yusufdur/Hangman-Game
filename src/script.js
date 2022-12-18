@@ -35,12 +35,14 @@ options.countries = readTextFile("./assets/words/countries.txt", options.countri
 let winCount = 0;
 let count = 0;
 let chosenWord = "";
+let optionValue = "";
 //Display option buttons
 const displayOptions = () => {
   optionsContainer.innerHTML += `<h3>Please Select An Option</h3>`;
   let buttonCon = document.createElement("div");
   for (let value in options) {
-    buttonCon.innerHTML += `<button class="options" onclick="generateWord('${value}')">${value}</button>`;
+    optionValue = value;
+    buttonCon.innerHTML += `<button class="options" onclick="generateWord('${optionValue}')">${value}</button>`;
   }
   optionsContainer.appendChild(buttonCon);
 };
@@ -74,15 +76,10 @@ const generateWord = (optionValue) => {
 
   //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
   let optionArray = [];
-  if (optionValue == "animals") {
-    optionArray = options.animals;
+  if (typeof options === 'object' && optionValue in options) {
+    optionArray = options[(optionValue)];
   }
-  else if (optionValue == "fruits") {
-    optionArray = options.animals;
-  }
-  else if (optionValue == "countries") {
-    optionArray = options.countries;
-  }
+
 
   console.log("option array : ", optionArray);
   //choose random word
