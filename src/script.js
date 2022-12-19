@@ -76,21 +76,7 @@ const generateWord = (optionValue) => {
 
   //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
   let optionArray = [];
-  if (typeof options === 'object' && optionValue in options) {
-    for (let value in options) {
-      if ("animals" == optionValue) {
-        optionArray = options.animals
-      }
-      else if (optionValue == "countries") {
-        optionArray = options.countries
-      }
-      else if (optionValue == "fruits") {
-        optionArray = options.fruits
-      }
-    }
-    // optionArray = options[optionValue];
-  }
-
+  optionArray = options[optionValue];
 
   console.log("option array : ", optionArray);
   //choose random word
