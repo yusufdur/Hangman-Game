@@ -85,15 +85,20 @@ const generateWord = (optionValue) => {
   userInputSection.innerText = "";
 
   //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  // let optionArray = (options[optionValue]).arrayname.map((el) => {
+  //   return el
+  // })
+  // console.log("option array : ", Array.from(optionArray));
+  // //choose random word
+  // chosenWord = Array.from(optionArray)[Math.floor(Math.random() * Array.from(optionArray).length)];
+
   let optionArray = {
     arrayname: [],
     name: "optionArray"
   }
   optionArray.arrayname = (options[optionValue]).arrayname;
-
-  console.log("option array : ", optionArray);
+  console.log("option array : ", optionArray.arrayname);
   //choose random word
-
   chosenWord = optionArray.arrayname[Math.floor(Math.random() * optionArray.arrayname.length)];
 
   chosenWord = chosenWord.toUpperCase();
