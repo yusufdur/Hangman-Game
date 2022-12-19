@@ -8,33 +8,127 @@ const canvas = document.getElementById("canvas");
 const resultText = document.getElementById("result-text");
 //Options values for buttons
 
-function readTextFile(file, array) {
-  var rawFile = new XMLHttpRequest();
-  rawFile.open("GET", file, false);
-  rawFile.onreadystatechange = function () {
-    if (rawFile.readyState === 4) {
-      if (rawFile.status === 200 || rawFile.status == 0) {
-        var allText = rawFile.responseText;
-        array = allText.split("\r\n")
-        // console.log(array);
-      }
-    }
-  }
-  rawFile.send(null);
-  return array
-}
+// function readTextFile(file, array) {
+//   var rawFile = new XMLHttpRequest();
+//   rawFile.open("GET", file, false);
+//   rawFile.onreadystatechange = function () {
+//     if (rawFile.readyState === 4) {
+//       if (rawFile.status === 200 || rawFile.status == 0) {
+//         var allText = rawFile.responseText;
+//         array = allText.split("\r\n")
+//         console.log(array);
+//       }
+//     }
+//   }
+//   rawFile.send(null);
+//   return array
+// }
 
 let options = {
-  fruits: [],
-  animals: [],
-  countries: [],
+  fruits: [
+    "Apple",
+    "Apricot",
+    "Avocado",
+    "Banana",
+    "Bilberry",
+    "Blackberry",
+    "Blackcurrant",
+    "Blueberry",
+    "Boysenberry",
+    "Currant",
+    "Cherry",
+    "Cherimoya",
+    "Chico fruit",
+    "Cloudberry",
+    "Coconut",
+    "Cranberry",
+    "Cucumber",
+    "Custard apple",
+    "Damson",
+    "Date",
+    "Dragonfruit",
+    "Durian",
+    "Elderberry",
+    "Feijoa",
+    "Fig",
+    "Goji berry",
+    "Gooseberry",
+    "Grape",
+    "Raisin",
+    "Grapefruit",
+    "Guava",
+    "Honeyberry",
+    "Huckleberry",
+    "Jabuticaba",
+    "Jackfruit",
+    "Jambul",
+    "Jujube",
+    "Juniper berry",
+    "Kiwano",
+    "Kiwifruit",
+    "Kumquat",
+    "Lemon",
+    "Lime",
+    "Loquat",
+    "Longan",
+    "Lychee",
+    "Mango",
+    "Mangosteen",
+    "Marionberry",
+    "Melon",
+    "Cantaloupe",
+    "Honeydew",
+    "Watermelon",
+    "Miracle fruit",
+    "Mulberry",
+    "Nectarine",
+    "Nance",
+    "Olive",
+    "Orange",
+    "Blood orange",
+    "Clementine",
+    "Mandarine",
+    "Tangerine",
+    "Papaya",
+    "Passionfruit",
+    "Peach",
+    "Pear",
+    "Persimmon",
+    "Physalis",
+    "Plantain",
+    "Plum",
+    "Prune",
+    "Pineapple",
+    "Plumcot",
+    "Pomegranate",
+    "Pomelo",
+    "Purple mangosteen",
+    "Quince",
+    "Raspberry",
+    "Salmonberry",
+    "Rambutan",
+    "Redcurrant",
+    "Salal berry",
+    "Salak",
+    "Satsuma",
+    "Soursop",
+    "Star fruit",
+    "Solanum quitoense",
+    "Strawberry",
+    "Tamarillo",
+    "Tamarind",
+    "Ugli fruit",
+    "Yuzu"],
+  animals: ["alligator", "armadillo", "bear", "beaver", "butterfly", "camel", "chicken", "chipmunk", "cougar", "coyote", "crocodile", "crab", "crayfish", "crow", "dinosaur", "dolphin", "donkey", "dragonfly", "deer", "duck", "eagle", "worm", "elephant", "fish", "frog", "giraffe", "goat", "goose", "gopher", "hamster", "hawk", "hedgehog", "hippopotamus", "horse", "jellyfish", "kangaroo", "kitten", "koala", "leopard", "lion", "lizard", "monkey", "moose", "mosquito", "mouse", "octopus", "oyster", "parrot", "panda", "panther", "pelican", "penguin", "piglet", "pigeon", "rabbit", "reindeer", "rhinoceros", "shark", "sheep", "skunk", "snail", "snake", "spider", "squirrel", "tiger", "tortoise", "turkey", "turtle", "whale", "wolf", "woodpecker", "worm", "zebra"],
+  countries: ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Botswana", "Brazil", "Brunei", "Bulgaria", "BurkinaFaso", "Burundi", "Cambodia", "Cameroon", "Canada", "Chad", "Chile", "China", "Colombia", "Comoros", "Croatia", "Cuba", "Cyprus", "Denmark", "Djibouti", "Dominica", "Ecuador", "Egypt", "Eritrea", "Estonia", "Eswatini", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "Nicaragua", "Niger", "Nigeria", "Norway", "Oman", "Pakistan", "Palau", "Palestine", "Panama", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Samoa", "San Marino", "Senegal", "Serbia", "Seychelles", "Singapore", "Slovakia", "Slovenia", "Somalia", "Spain", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Togo", "Tonga", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "America", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"]
 }
 
-options.fruits = readTextFile("./assets/words/fruits.txt", options.fruits);
-options.animals = readTextFile("./assets/words/animals.txt", options.animals);
-options.countries = readTextFile("./assets/words/countries.txt", options.countries);
+// options.fruits = readTextFile("./assets/words/fruits.txt", options.fruits);
+// options.animals = readTextFile("./assets/words/animals.txt", options.animals);
+// options.countries = readTextFile("./assets/words/countries.txt", options.countries);
 
 console.log(options)
+
 //count
 let winCount = 0;
 let count = 0;
