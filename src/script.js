@@ -24,35 +24,27 @@ function readTextFile(file, array) {
   return array
 }
 
-let fruits = {
-  arrayname: [],
-  name: "fruits"
+let options = {
+  fruits: [],
+  animals: [],
+  countries: [],
 }
-let animals = {
-  arrayname: [],
-  name: "animals"
-}
-let countries = {
-  arrayname: [],
-  name: "countries"
-}
-fruits.arrayname = readTextFile("./assets/words/fruits.txt", fruits.arrayname);
-animals.arrayname = readTextFile("./assets/words/animals.txt", animals.arrayname);
-countries.arrayname = readTextFile("./assets/words/countries.txt", countries.arrayname);
-let options = [fruits, animals, countries];
+
+options.fruits = readTextFile("./assets/words/fruits.txt", options.fruits);
+options.animals = readTextFile("./assets/words/animals.txt", options.animals);
+options.countries = readTextFile("./assets/words/countries.txt", options.countries);
+
+console.log(options)
 //count
 let winCount = 0;
 let count = 0;
 let chosenWord = "";
-let optionValue = "";
 //Display option buttons
 const displayOptions = () => {
   optionsContainer.innerHTML += `<h3>Please Select An Option</h3>`;
   let buttonCon = document.createElement("div");
   for (let value in options) {
-    optionValue = value;
-    console.log(optionValue);
-    buttonCon.innerHTML += `<button class="options" onclick="generateWord('${optionValue}')">${options[value].name}</button>`;
+    buttonCon.innerHTML += `<button class="options" onclick="generateWord('${value}')">${value}</button>`;
   }
   optionsContainer.appendChild(buttonCon);
 };
@@ -85,22 +77,11 @@ const generateWord = (optionValue) => {
   userInputSection.innerText = "";
 
   //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-  // let optionArray = (options[optionValue]).arrayname.map((el) => {
-  //   return el
-  // })
-  // console.log("option array : ", Array.from(optionArray));
-  // //choose random word
-  // chosenWord = Array.from(optionArray)[Math.floor(Math.random() * Array.from(optionArray).length)];
+  let optionArray = options[optionValue];
+  console.log("option array : ", optionArray);
 
-  let optionArray = {
-    arrayname: [],
-    name: "optionArray"
-  }
-  optionArray.arrayname = (options[optionValue]).arrayname;
-  console.log("option array : ", optionArray.arrayname);
   //choose random word
-  chosenWord = optionArray.arrayname[Math.floor(Math.random() * optionArray.arrayname.length)];
-
+  chosenWord = optionArray[Math.floor(Math.random() * optionArray.length)];
   chosenWord = chosenWord.toUpperCase();
   console.log("CHOOSEN WORD => \" ", chosenWord, " \" ");
   //replace every letter with span containing dash
@@ -109,7 +90,6 @@ const generateWord = (optionValue) => {
     displayItem = chosenWord.replace(/./g, '<span class="dashes">_</span>');
   } else {
     let array = Array.from(chosenWord);
-    console.log(array);
     for (let i = 0; i < array.length; i++) {
       if (array[i] != ' ') {
         displayItem += '<span class="dashes">_</span>'
