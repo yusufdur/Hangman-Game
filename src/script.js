@@ -36,7 +36,6 @@ let winCount = 0;
 let count = 0;
 let chosenWord = "";
 let optionValue = "";
-let optionArray = [];
 //Display option buttons
 const displayOptions = () => {
   optionsContainer.innerHTML += `<h3>Please Select An Option</h3>`;
@@ -76,6 +75,7 @@ const generateWord = (optionValue) => {
   userInputSection.innerText = "";
 
   //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  let optionArray = [];
   for (let i = 0; i < options[optionValue].length; i++) {
     optionArray.push(options[optionValue][i])
   }
