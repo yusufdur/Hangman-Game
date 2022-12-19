@@ -24,17 +24,21 @@ function readTextFile(file, array) {
   return array
 }
 
-
-let fruits = []
-let animals = []
-let countries = []
-
-fruits = readTextFile("./assets/words/fruits.txt", fruits);
-fruits.name = "fruits"
-animals = readTextFile("./assets/words/animals.txt", animals);
-animals.name = "animals"
-countries = readTextFile("./assets/words/countries.txt", countries);
-countries.name = "countries"
+let fruits = {
+  arrayname: [],
+  name: "fruits"
+}
+let animals = {
+  arrayname: [],
+  name: "animals"
+}
+let countries = {
+  arrayname: [],
+  name: "countries"
+}
+fruits.arrayname = readTextFile("./assets/words/fruits.txt", fruits.arrayname);
+animals.arrayname = readTextFile("./assets/words/animals.txt", animals.arrayname);
+countries.arrayname = readTextFile("./assets/words/countries.txt", countries.arrayname);
 let options = [fruits, animals, countries];
 //count
 let winCount = 0;
@@ -81,7 +85,7 @@ const generateWord = (optionValue) => {
   userInputSection.innerText = "";
 
   //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-  optionArray = options[0];
+  optionArray = (options[optionValue]).arrayname;
 
   console.log("option array : ", optionArray);
   //choose random word
