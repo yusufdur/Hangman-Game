@@ -76,7 +76,11 @@ const generateWord = (optionValue) => {
   userInputSection.innerText = "";
 
   //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-  optionArray = options[optionValue];
+  for (let i = 0; i < options[optionValue].length; i++) {
+    optionArray.push(options[optionValue][i])
+    
+  }
+  // optionArray = options[optionValue];
 
   console.log("option array : ", optionArray);
   //choose random word
