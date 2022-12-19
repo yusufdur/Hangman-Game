@@ -77,7 +77,18 @@ const generateWord = (optionValue) => {
   //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
   let optionArray = [];
   if (typeof options === 'object' && optionValue in options) {
-    optionArray = options[(optionValue)];
+    for (let value in options) {
+      if ("animals" == optionValue) {
+        optionArray = options.animals
+      }
+      else if (optionValue == "countries") {
+        optionArray = options.countries
+      }
+      else if (optionValue == "fruits") {
+        optionArray = options.fruits
+      }
+    }
+    // optionArray = options[optionValue];
   }
 
 
