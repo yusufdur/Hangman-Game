@@ -78,7 +78,6 @@ const generateWord = (optionValue) => {
   //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
   for (let i = 0; i < options[optionValue].length; i++) {
     optionArray.push(options[optionValue][i])
-    
   }
   // optionArray = options[optionValue];
 

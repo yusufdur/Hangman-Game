@@ -1,13 +1,13 @@
 const cacheName = 'words-v1'
 const staticAssets = [
-    "/index.html",
-    "/src/style.css",
-    "/src/script.js",
-    "/assets/images/logo.jpg",
-    "/assets/words/animals.txt",
-    "/assets/words/fruits.txt",
-    "/assets/words/countries.txt",
-    "/assets/words/animals2.txt",
+    "/Hangman_Game/index.html",
+    "/Hangman_Game/src/style.css",
+    "/Hangman_Game/src/script.js",
+    "/Hangman_Game/assets/images/logo.jpg",
+    "/Hangman_Game/assets/words/animals.txt",
+    "/Hangman_Game/assets/words/fruits.txt",
+    "/Hangman_Game/assets/words/countries.txt",
+    "/Hangman_Game/assets/words/animals2.txt",
 ]
 
 self.addEventListener("install", async e => {
