@@ -23,14 +23,19 @@ function readTextFile(file, array) {
   rawFile.send(null);
   return array
 }
-let options = {
-  fruits: [],
-  animals: [],
-  countries: [],
-};
-options.fruits = readTextFile("./assets/words/fruits.txt", options.fruits);
-options.animals = readTextFile("./assets/words/animals.txt", options.animals);
-options.countries = readTextFile("./assets/words/countries.txt", options.countries);
+
+
+let fruits = []
+let animals = []
+let countries = []
+
+fruits = readTextFile("./assets/words/fruits.txt", fruits);
+fruits.name = "fruits"
+animals = readTextFile("./assets/words/animals.txt", animals);
+animals.name = "animals"
+countries = readTextFile("./assets/words/countries.txt", countries);
+countries.name = "countries"
+let options = [fruits, animals, countries];
 //count
 let winCount = 0;
 let count = 0;
@@ -42,7 +47,8 @@ const displayOptions = () => {
   let buttonCon = document.createElement("div");
   for (let value in options) {
     optionValue = value;
-    buttonCon.innerHTML += `<button class="options" onclick="generateWord('${optionValue}')">${value}</button>`;
+    console.log(optionValue);
+    buttonCon.innerHTML += `<button class="options" onclick="generateWord('${optionValue}')">${options[value].name}</button>`;
   }
   optionsContainer.appendChild(buttonCon);
 };
@@ -75,11 +81,7 @@ const generateWord = (optionValue) => {
   userInputSection.innerText = "";
 
   //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-  let optionArray = [];
-  for (let i = 0; i < options[optionValue].length; i++) {
-    optionArray.push(options[optionValue][i])
-  }
-  // optionArray = options[optionValue];
+  optionArray = options[optionValue];
 
   console.log("option array : ", optionArray);
   //choose random word
