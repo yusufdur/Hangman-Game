@@ -4,6 +4,7 @@
     width: auto;
     height: auto;
   }
+
   body {
     padding: 100px 0px 48px 0px;
     height: 300px;
@@ -13,10 +14,12 @@
     height: 120px;
     padding: 10px 0px 48px 0px;
   }
+
   #options-container h3 {
     font-size: medium;
     width: 200px;
   }
+
   #options-container div {
 
     padding: 0px;
@@ -24,9 +27,11 @@
     margin-left: auto;
     margin-right: auto;
   }
+
   #options-container div button {
     padding: 0px 5px 0px 5px;
     display: block;
+    margin-right: 2px;
   }
 }
 
@@ -39,7 +44,7 @@
 }
 
 body {
-  background-color:brown;
+  background-color: brown;
 
 }
 
@@ -77,9 +82,8 @@ body {
 
 #options-container button {
   padding: 0.6em 1.2em;
-
   border: 3px solid #000000;
-  background-color: #ffffff;
+  background-color: #efefef;
   color: #000000;
   border-radius: 0.3em;
   text-transform: capitalize;
@@ -111,6 +115,16 @@ body {
   border-radius: 0.3em;
   background-color: #ffffff;
 }
+
+.giveHintDiv {
+  text-align: center;
+}
+
+.giveHintDiv button {
+  display: block;
+  margin: 0 auto;
+}
+
 
 .new-game-popup {
   background-color: #ffffff;
