@@ -6,9 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#009578">
-  <meta http-equiv='cache-control' content='no-cache'>
-  <meta http-equiv='expires' content='0'>
-  <meta http-equiv='pragma' content='no-cache'>
+  <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+  <META HTTP-EQUIV="Expires" CONTENT="-1">
 
   <title>Hangman</title>
   <!-- Google Fonts -->
@@ -22,7 +21,7 @@
   <link rel="apple-touch-icon" href="./assets/images/logo.png">
 </head>
 
-<body>
+<body onload="loadOnce()">
   <div class="container">
     <div id="options-container"></div>
     <div id="letter-container" class="letter-container hide"></div>
@@ -46,22 +45,28 @@
     // service worker 
     window.addEventListener("load", () => {
       registerSW()
-      //hardreset
-      // if (!window.location.hash) {
-      //   window.location = window.location + '#loaded';
-      //   window.location.reload();
-      // }
-      (function () {
-        if (window.localStorage) {
-          if (!localStorage.getItem('firstLoad')) {
-            localStorage['firstLoad'] = true;
-            window.location.reload(); 
-          }
-          else
-            localStorage.removeItem('firstLoad');
-        }
-      })();
+        //hardreset
+        // if (!window.location.hash) {
+        //   window.location = window.location + '#loaded';
+        //   window.location.reload();
+        // }
+
+        
+        // (function () {
+        //   if (window.localStorage) {
+        //     if (!localStorage.getItem('firstLoad')) {
+        //       localStorage['firstLoad'] = true;
+        //       window.location.reload();
+        //     }
+        //     else
+        //       localStorage.removeItem('firstLoad');
+        //   }
+        // })();
     })
+
+    function loadOnce() {
+      window.location.reload();
+    }
 
     function registerSW() {
       if ('serviceWorker' in navigator) {
