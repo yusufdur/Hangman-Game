@@ -116,11 +116,11 @@ body {
   background-color: #ffffff;
 }
 
-.giveHintDiv {
+#giveHintDiv {
   text-align: center;
 }
 
-.giveHintDiv button {
+#giveHintDiv button {
   display: block;
   margin: 0 auto;
 }

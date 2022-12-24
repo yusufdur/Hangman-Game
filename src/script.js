@@ -4,6 +4,7 @@ const optionsContainer = document.getElementById("options-container");
 const userInputSection = document.getElementById("user-input-section");
 const newGameContainer = document.getElementById("new-game-container");
 const newGameButton = document.getElementById("new-game-button");
+const giveHintDiv = document.getElementById("giveHintDiv");
 const canvas = document.getElementById("canvas");
 const resultText = document.getElementById("result-text");
 //Options values for buttons
@@ -73,7 +74,8 @@ const blocker = () => {
 //Word Generator
 const generateWord = (optionValue) => {
     // when click option button remove disabled on hint button 
-    document.getElementById('give_hint').removeAttribute('disabled');
+    // document.getElementById('give_hint').removeAttribute('disabled');
+    giveHintDiv.classList.remove("hide")
     let optionsButtons = document.querySelectorAll(".options");
     //If optionValur matches the button innerText then highlight the button
     optionsButtons.forEach((button) => {
@@ -167,7 +169,8 @@ const createDashesCharArray = () => {
 //Initial Function (Called when page loads/user presses new game)
 const initializer = () => {
     // when click option button add disabled on hint button 
-    document.getElementById('give_hint').setAttribute('disabled', '');
+    // document.getElementById('give_hint').setAttribute('disabled', '');
+    giveHintDiv.classList.add("hide")
     hintArray = []
     //defines
     winCount = 0;
@@ -196,7 +199,7 @@ const initializer = () => {
                         dashes[index].innerText = char;
                         //increment counter
                         winCount += 1;
-                        console.log("click wincount " , winCount);
+                        console.log("click wincount ", winCount);
                         //if winCount equals word lenfth
                         if (winCount === charArray.length) {
                             resultText.innerHTML = `<h2 class='win-msg'>You Win!!</h2><p>The word was <span>${chosenWord}</span></p>`;
