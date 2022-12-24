@@ -17,7 +17,7 @@ function readTextFile(file, array) {
         if (rawFile.readyState === 4) {
             if (rawFile.status === 200 || rawFile.status == 0) {
                 var allText = rawFile.responseText;
-                array = allText.split("\r\n")
+                array = allText.split("\n")
                 console.log(array);
             }
         }
@@ -82,7 +82,7 @@ const generateWord = (optionValue) => {
 
 
 
-    
+
     let optionsButtons = document.querySelectorAll(".options");
     //If optionValur matches the button innerText then highlight the button
     optionsButtons.forEach((button) => {
