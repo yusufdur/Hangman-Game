@@ -65,7 +65,7 @@ const blocker = () => {
     });
     //disable all letters
     letterButtons.forEach((button) => {
-        button.disabled.true;
+        button.disabled = true;
     });
     newGameContainer.classList.remove("hide");
 };
@@ -73,7 +73,7 @@ const blocker = () => {
 //Word Generator
 const generateWord = (optionValue) => {
     // when click option button remove disabled on hint button 
-    document.getElementById("give-hint").disabled = false;
+    document.getElementById('give_hint').removeAttribute('disabled');
     let optionsButtons = document.querySelectorAll(".options");
     //If optionValur matches the button innerText then highlight the button
     optionsButtons.forEach((button) => {
@@ -147,11 +147,11 @@ const handleGiveHint = () => {
         if (charArray[i] === hint) {
             dashes[i].innerText = hint
         }
-        console.log(dashes[i]);
     }
 
     //if winCount equals word lenfth
-    if (winCount == charArray.length) {
+    if (winCount === charArray.length) {
+
         resultText.innerHTML = `<h2 class='win-msg'>You Win!!</h2><p>The word was <span>${chosenWord}</span></p>`;
         //block all buttons
         blocker();
@@ -167,7 +167,7 @@ const createDashesCharArray = () => {
 //Initial Function (Called when page loads/user presses new game)
 const initializer = () => {
     // when click option button add disabled on hint button 
-    document.getElementById("give-hint").disabled = true;
+    document.getElementById('give_hint').setAttribute('disabled', '');
     hintArray = []
     //defines
     winCount = 0;
@@ -198,7 +198,7 @@ const initializer = () => {
                         winCount += 1;
                         console.log("click wincount " , winCount);
                         //if winCount equals word lenfth
-                        if (winCount == charArray.length) {
+                        if (winCount === charArray.length) {
                             resultText.innerHTML = `<h2 class='win-msg'>You Win!!</h2><p>The word was <span>${chosenWord}</span></p>`;
                             //block all buttons
                             blocker();
