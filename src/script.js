@@ -17,7 +17,7 @@ function readTextFile(file, array) {
         if (rawFile.readyState === 4) {
             if (rawFile.status === 200 || rawFile.status == 0) {
                 var allText = rawFile.responseText;
-                array = allText.split("\n")
+                array = allText.split("\r\n")
                 console.log(array);
             }
         }
@@ -77,7 +77,12 @@ const generateWord = (optionValue) => {
     // when click option button remove disabled on hint button 
     // document.getElementById('give_hint').removeAttribute('disabled');
     giveHintDiv.classList.remove("hide")
+    // giveHintDiv.append("");
     // giveHintButton.disabled = false
+
+
+
+    
     let optionsButtons = document.querySelectorAll(".options");
     //If optionValur matches the button innerText then highlight the button
     optionsButtons.forEach((button) => {
