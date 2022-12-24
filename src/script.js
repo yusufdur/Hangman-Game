@@ -180,6 +180,11 @@ const createDashesCharArray = () => {
 }
 //Initial Function (Called when page loads/user presses new game)
 const initializer = () => {
+    //hardreset
+    if (!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }
     // when click option button add disabled on hint button 
     // document.getElementById('give_hint').setAttribute('disabled', '');
     // giveHintDiv.classList.add("hide")
@@ -341,9 +346,3 @@ const drawMan = (count) => {
 //New Game
 newGameButton.addEventListener("click", initializer);
 window.onload = initializer;
-window.onload = function () {
-    if (!window.location.hash) {
-        window.location = window.location + '#loaded';
-        window.location.reload();
-    }
-}
