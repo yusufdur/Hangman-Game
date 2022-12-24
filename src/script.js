@@ -77,11 +77,8 @@ const generateWord = (optionValue) => {
     // when click option button remove disabled on hint button 
     // document.getElementById('give_hint').removeAttribute('disabled');
     giveHintDiv.classList.remove("hide")
-    // giveHintDiv.append("");
+    giveHintDiv.innerHTML += `<button id="give_hint" style="width:200px ; height:30px;" onclick="handleGiveHint()">GiveHint</button>`
     // giveHintButton.disabled = false
-
-
-
 
     let optionsButtons = document.querySelectorAll(".options");
     //If optionValur matches the button innerText then highlight the button
@@ -178,6 +175,7 @@ const initializer = () => {
     // when click option button add disabled on hint button 
     // document.getElementById('give_hint').setAttribute('disabled', '');
     giveHintDiv.classList.add("hide")
+    giveHintDiv.innerHTML = ""
     // giveHintButton.disabled = true
     hintArray = []
     //defines
