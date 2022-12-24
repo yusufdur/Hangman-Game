@@ -1,6 +1,3 @@
-//hard refresh
-location.reload(true);
-
 const cacheName = 'words-v1'
 const staticAssets = [
     "./index.html",

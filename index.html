@@ -6,7 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#009578">
-  <meta http-equiv="refresh" content="30">
+  <meta http-equiv='cache-control' content='no-cache'>
+  <meta http-equiv='expires' content='0'>
+  <meta http-equiv='pragma' content='no-cache'>
 
   <title>Hangman</title>
   <!-- Google Fonts -->
@@ -47,6 +49,8 @@
     // service worker 
     window.addEventListener("load", () => {
       registerSW()
+      //hard refresh
+      location.reload(true);
     })
 
     async function registerSW() {
