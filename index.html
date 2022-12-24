@@ -43,13 +43,19 @@
   <script src="./src/script.js"></script>
 
   <script>
-    window.addEventListener('beforeunload', function () {
-      location.reload(true);
-    });
+    window.onload = function () {
+      if (!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+      }
+    }
 
     // service worker 
     window.addEventListener("load", () => {
       registerSW()
+      console.log("sw çalıştı");
+      // location.reload();
+      // console.log("sayfa yenilendi");
     })
 
     async function registerSW() {
