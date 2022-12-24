@@ -76,8 +76,7 @@ const blocker = () => {
 const generateWord = (optionValue) => {
     // when click option button remove disabled on hint button 
     // document.getElementById('give_hint').removeAttribute('disabled');
-    // giveHintDiv.classList.remove("hide")
-    // giveHintDiv.innerHTML += `<button id="give_hint" style="width:200px ; height:30px;" onclick="handleGiveHint()">GiveHint</button>`
+    giveHintDiv.classList.remove("hide")
     // giveHintButton.disabled = false
 
     let optionsButtons = document.querySelectorAll(".options");
@@ -182,8 +181,7 @@ const createDashesCharArray = () => {
 const initializer = () => {
     // when click option button add disabled on hint button 
     // document.getElementById('give_hint').setAttribute('disabled', '');
-    // giveHintDiv.classList.add("hide")
-    // giveHintDiv.innerHTML = ""
+    giveHintDiv.classList.add("hide")
     // giveHintButton.disabled = true
     hintArray = []
     //defines

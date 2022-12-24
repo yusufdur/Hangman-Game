@@ -26,7 +26,7 @@
     <div id="options-container"></div>
     <div id="letter-container" class="letter-container hide"></div>
     <div id="user-input-section"></div>
-    <div id="giveHintDiv">
+    <div id="giveHintDiv" class="giveHintDiv hide">
       <button id="give_hint" style="width:200px ; height:30px;" onclick="handleGiveHint()">GiveHint</button>
     </div>
 
@@ -45,23 +45,6 @@
     // service worker 
     window.addEventListener("load", () => {
       registerSW()
-        //hardreset
-        // if (!window.location.hash) {
-        //   window.location = window.location + '#loaded';
-        //   window.location.reload();
-        // }
-
-        
-        // (function () {
-        //   if (window.localStorage) {
-        //     if (!localStorage.getItem('firstLoad')) {
-        //       localStorage['firstLoad'] = true;
-        //       window.location.reload();
-        //     }
-        //     else
-        //       localStorage.removeItem('firstLoad');
-        //   }
-        // })();
     })
 
     function loadOnce() {
