@@ -11,13 +11,13 @@ const staticAssets = [
 ]
 self.addEventListener("install", async e => {
     const cache = await caches.open(cacheName);
-    await cache.addAll(staticAssets);
+    cache.addAll(staticAssets);
     return self.skipWaiting();
 })
 
-self.addEventListener("activate", e => {
-    self.clients.claim();
-})
+// self.addEventListener("activate", e => {
+//     self.clients.claim();
+// })
 
 self.addEventListener('fetch', async e => {
     const req = e.request;
@@ -29,12 +29,12 @@ self.addEventListener('fetch', async e => {
     }
 });
 
-
 async function cacheFirst(req) {
     const cache = await caches.open(cacheName);
     const cached = await cache.match(req);
     return cached || fetch(req);
 }
+
 async function networkAndCache(req) {
     const cache = await caches.open(cacheName);
     try {
