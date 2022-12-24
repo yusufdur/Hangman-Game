@@ -101,6 +101,15 @@ body {
   color: #000000;
 }
 
+#giveHintDiv {
+  text-align: center;
+}
+
+#giveHintDiv button {
+  display: block;
+  margin: 0 auto;
+}
+
 .letter-container {
   width: 100%;
   display: flex;
@@ -115,16 +124,6 @@ body {
   border-radius: 0.3em;
   background-color: #ffffff;
 }
-
-#giveHintDiv {
-  text-align: center;
-}
-
-#giveHintDiv button {
-  display: block;
-  margin: 0 auto;
-}
-
 
 .new-game-popup {
   background-color: #ffffff;
