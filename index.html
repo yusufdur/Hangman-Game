@@ -20,13 +20,10 @@
   <!-- Logo -->
   <link rel="shortcut icon" type="image/x-icon" href="./assets/images/logo.png" />
   <link rel="apple-touch-icon" href="./assets/images/logo.png">
-
 </head>
 
 <body>
-
   <div class="container">
-
     <div id="options-container"></div>
     <div id="letter-container" class="letter-container hide"></div>
     <div id="user-input-section"></div>
@@ -46,11 +43,20 @@
   <script src="./src/script.js"></script>
 
   <script>
+    let resetPerformed = false;
+    function hardReset() {
+      if (resetPerformed) {
+        return;
+      }
+      location.reload(true);
+      resetPerformed = true;
+    }
+
     // service worker 
     window.addEventListener("load", () => {
       registerSW()
       //hard refresh
-      location.reload(true);
+      hardReset()
     })
 
     async function registerSW() {
