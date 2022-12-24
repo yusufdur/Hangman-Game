@@ -76,8 +76,8 @@ const blocker = () => {
 const generateWord = (optionValue) => {
     // when click option button remove disabled on hint button 
     // document.getElementById('give_hint').removeAttribute('disabled');
-    giveHintDiv.classList.remove("hide")
-    giveHintDiv.innerHTML += `<button id="give_hint" style="width:200px ; height:30px;" onclick="handleGiveHint()">GiveHint</button>`
+    // giveHintDiv.classList.remove("hide")
+    // giveHintDiv.innerHTML += `<button id="give_hint" style="width:200px ; height:30px;" onclick="handleGiveHint()">GiveHint</button>`
     // giveHintButton.disabled = false
 
     let optionsButtons = document.querySelectorAll(".options");
@@ -137,12 +137,21 @@ const handleGiveHint = () => {
         if (!hintArray.includes(hint)) {
             hintArray.push(hint)
             winCount += c(charArray, hint)
+
             break;
         } else {
             random = Math.floor(Math.random() * dashes.length)
             hint = charArray[random]
         }
     }
+    let letterButtons = document.querySelectorAll(".letters");
+    //disable selected letters
+    letterButtons.forEach((button) => {
+        if(button.innerText === hint){
+            button.disabled = true
+        }
+    });
+
     console.log("dashes ", dashes);
     console.log("random ", random);
     console.log("wincount ", winCount);
@@ -157,7 +166,6 @@ const handleGiveHint = () => {
 
     //if winCount equals word lenfth
     if (winCount === charArray.length) {
-
         resultText.innerHTML = `<h2 class='win-msg'>You Win!!</h2><p>The word was <span>${chosenWord}</span></p>`;
         //block all buttons
         blocker();
@@ -174,8 +182,8 @@ const createDashesCharArray = () => {
 const initializer = () => {
     // when click option button add disabled on hint button 
     // document.getElementById('give_hint').setAttribute('disabled', '');
-    giveHintDiv.classList.add("hide")
-    giveHintDiv.innerHTML = ""
+    // giveHintDiv.classList.add("hide")
+    // giveHintDiv.innerHTML = ""
     // giveHintButton.disabled = true
     hintArray = []
     //defines
