@@ -147,7 +147,7 @@ const handleGiveHint = () => {
     let letterButtons = document.querySelectorAll(".letters");
     //disable selected letters
     letterButtons.forEach((button) => {
-        if(button.innerText === hint){
+        if (button.innerText === hint) {
             button.disabled = true
         }
     });
@@ -341,3 +341,9 @@ const drawMan = (count) => {
 //New Game
 newGameButton.addEventListener("click", initializer);
 window.onload = initializer;
+window.onload = function () {
+    if (!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }
+}
