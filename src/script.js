@@ -5,6 +5,7 @@ const userInputSection = document.getElementById("user-input-section");
 const newGameContainer = document.getElementById("new-game-container");
 const newGameButton = document.getElementById("new-game-button");
 const giveHintDiv = document.getElementById("giveHintDiv");
+const giveHintButton = document.getElementById("give_hint");
 const canvas = document.getElementById("canvas");
 const resultText = document.getElementById("result-text");
 //Options values for buttons
@@ -16,7 +17,7 @@ function readTextFile(file, array) {
         if (rawFile.readyState === 4) {
             if (rawFile.status === 200 || rawFile.status == 0) {
                 var allText = rawFile.responseText;
-                array = allText.split("\n")
+                array = allText.split("\r\n")
                 console.log(array);
             }
         }
@@ -75,7 +76,7 @@ const blocker = () => {
 const generateWord = (optionValue) => {
     // when click option button remove disabled on hint button 
     // document.getElementById('give_hint').removeAttribute('disabled');
-    giveHintDiv.classList.remove("hide")
+    giveHintButton.disabled = false
     let optionsButtons = document.querySelectorAll(".options");
     //If optionValur matches the button innerText then highlight the button
     optionsButtons.forEach((button) => {
@@ -170,7 +171,7 @@ const createDashesCharArray = () => {
 const initializer = () => {
     // when click option button add disabled on hint button 
     // document.getElementById('give_hint').setAttribute('disabled', '');
-    giveHintDiv.classList.add("hide")
+    giveHintButton.disabled = true
     hintArray = []
     //defines
     winCount = 0;
