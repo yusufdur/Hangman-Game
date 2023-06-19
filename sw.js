@@ -10,14 +10,14 @@ const staticAssets = [
     "./assets/words/animals2.txt",
 ]
 
-// "/Hangman_Game/index.html",
-// "/Hangman_Game/src/style.css",
-// "/Hangman_Game/src/script.js",
-// "/Hangman_Game/assets/images/logo.png",
-// "/Hangman_Game/assets/words/animals.txt",
-// "/Hangman_Game/assets/words/fruits.txt",
-// "/Hangman_Game/assets/words/countries.txt",
-// "/Hangman_Game/assets/words/animals2.txt",
+// "/Hangman-Game/index.html",
+// "/Hangman-Game/src/style.css",
+// "/Hangman-Game/src/script.js",
+// "/Hangman-Game/assets/images/logo.png",
+// "/Hangman-Game/assets/words/animals.txt",
+// "/Hangman-Game/assets/words/fruits.txt",
+// "/Hangman-Game/assets/words/countries.txt",
+// "/Hangman-Game/assets/words/animals2.txt",
 
 self.addEventListener("install", async e => {
     const cache = await caches.open(cacheName);
